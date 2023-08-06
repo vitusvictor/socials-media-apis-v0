@@ -52,13 +52,4 @@ public class CommentServiceImpl implements CommentService {
 
         return new ResponseEntity<>("Comment added.", HttpStatus.CREATED);
     }
-
-//    @Override
-//    public List<Comment> getAllComments() {
-//        List<Comment> comments = new ArrayList<>();
-//        for (Comment comment: commentRepo.findAll() ) {
-//
-//        }
-////        List<> commentRepo.findAll();
-//    }
 }

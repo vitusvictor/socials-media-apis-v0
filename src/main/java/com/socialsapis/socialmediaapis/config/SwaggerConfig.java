@@ -24,11 +24,11 @@ import java.util.List;
 public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
-        return new ApiInfo("SEERBIT CODING INTERVIEW CHALLENGE",
-                "With three endpoints for get, delete and post",
+        return new ApiInfo("SOCIAL MEDIA APIs",
+                "",
                 "1.0",
                 "this version is free to all",
-                new springfox.documentation.service.Contact("SEERBIT CODING INTERVIEW CHALLENGE", "", ""),
+                new springfox.documentation.service.Contact("SOCIAL MEDIA APIs", "", ""),
                 "Api License",
                 "",
                 Collections.emptyList());

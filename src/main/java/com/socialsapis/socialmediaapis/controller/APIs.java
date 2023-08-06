@@ -71,20 +71,15 @@ public class APIs {
         return postService.likePost(likePostRequest);
     }
 
-    @GetMapping("/get-all-posts")
-    public List<Post> getAllPosts() {
-        return postService.getAllPost();
+    @GetMapping("/get-post/{post-id}")
+    public ResponseEntity<?>  getPost(@PathVariable("post-id") Long id) {
+        return postService.getPost(id);
     }
 
     @PostMapping("/make-comment")
     public ResponseEntity<?> comment(@Valid @RequestBody CommentRequest commentRequest) {
         return commentService.commentOnPost(commentRequest);
     }
-
-//    @GetMapping("/get-all-comments")
-//    public List<Comment> getComments() {
-//        return commentService.getAllComments();
-//    }
 
     @PatchMapping("/follow")
     public ResponseEntity<?> follow(@Valid @RequestBody FollowRequest followRequest) {

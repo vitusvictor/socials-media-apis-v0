@@ -14,5 +14,4 @@ public class PostResponse {
     private LocalDateTime createdDate;
     private BigInteger likesCount;
     private List<Comment> comments;
-//    private List<AuthorResponse> authorResponse;
 }

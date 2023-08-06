@@ -40,12 +40,10 @@ public class JwtUtils {
 
     public String generateToken(UserDetails userDetails){
         Map<String, Object> claims = new HashMap<>();
-        System.out.println("here -----------> 1111111111");
         return createToken(claims, userDetails.getUsername());
     }
 
     private String createToken(Map<String, Object> claims, String subject){
-        System.out.println("here ------> 222222");
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(subject)

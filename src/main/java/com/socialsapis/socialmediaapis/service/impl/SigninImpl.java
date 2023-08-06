@@ -42,9 +42,7 @@ public class SigninImpl implements Signin {
             throw new UsernameNotFoundException("Invalid Credential");
         }
         final UserDetails userDetails = userService.loadUserByUsername(signinRequest.getEmail());
-        log.info("loaded user by username");
         String jwt = jwtUtils.generateToken(userDetails);
-        System.out.println("jwt ->>>>>> "+jwt);
         return new SigninResponse("Successfully signed in", jwt);
 
     }

@@ -58,18 +58,6 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<Post> getAllPost() {
-//        private Long id;
-//        private String content;
-//        private LocalDateTime createdDate;
-//        private BigInteger likesCount;
-//        private List<Comment> comments;
-
-
-        return postRepo.findAll();
-    }
-
-    @Override
     public ResponseEntity<?> likePost(LikePostRequest likePostRequest) {
         Optional<Post> postOpt = postRepo.findById(likePostRequest.getPostId());
         Optional<User> userOpt = userRepo.findById(likePostRequest.getUserId());
@@ -86,6 +74,24 @@ public class PostServiceImpl implements PostService {
         postRepo.save(post);
 
         return new ResponseEntity<>("Post liked.", HttpStatus.CREATED);
+    }
+
+    @Override
+    public ResponseEntity<?> getPost(Long id) {
+        Optional<Post> postOpt = postRepo.findById(id);
+
+        if (postOpt.isEmpty()) {
+            throw new PostNotFoundException("Post with the id not found.");
+        }
+
+        PostResponse postResponse = new PostResponse();
+        postResponse.setComments(postOpt.get().getComments());
+        postResponse.setContent(postOpt.get().getContent());
+        postResponse.setLikesCount(postOpt.get().getLikesCount());
+        postResponse.setId(postOpt.get().getId());
+        postResponse.setCreatedDate(postOpt.get().getCreatedDate());
+
+        return ResponseEntity.ok(postResponse);
     }
 
 
