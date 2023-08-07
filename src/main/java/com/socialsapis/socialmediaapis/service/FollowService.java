@@ -10,7 +10,7 @@ public interface FollowService {
 
 //    ResponseEntity<?> getUser();
 
-    ResponseEntity<?> getUser(Long id);
-
-    ResponseEntity<?> getAllUsers();
+//    ResponseEntity<?> getUser(Long id);
+//
+//    ResponseEntity<?> getAllUsers();
 }

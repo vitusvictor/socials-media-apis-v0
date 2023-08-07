@@ -2,13 +2,9 @@ package com.socialsapis.socialmediaapis.response;
 
 import lombok.Data;
 
-import java.util.List;
-
 @Data
-public class UserResponse {
+public class FollowerResponse {
     private String username;
     private String email;
     private Long id;
-    private List<FollowerResponse> followers;
-    private List<FollowerResponse> following;
 }

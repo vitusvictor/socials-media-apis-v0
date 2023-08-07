@@ -5,6 +5,7 @@ import com.socialsapis.socialmediaapis.entity.Post;
 import com.socialsapis.socialmediaapis.request.*;
 import com.socialsapis.socialmediaapis.response.SignUpResponse;
 import com.socialsapis.socialmediaapis.service.*;
+import com.socialsapis.socialmediaapis.service.impl.UserServiceImpl;
 import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,7 @@ public class APIs {
     private final PostService postService;
     private final CommentService commentService;
     private final FollowService followService;
+    private final UserService userService;
 //    private final
 
     @PostMapping("/signup")
@@ -53,12 +55,12 @@ public class APIs {
 
     @GetMapping("/get-all-users")
     public ResponseEntity<?> getAllUsers() {
-        return followService.getAllUsers();
+        return userService.getAllUsers();
     }
 
     @GetMapping("/get-user/{user-id}")
     public ResponseEntity<?> getUser(@PathVariable("user-id") Long id) {
-        return followService.getUser(id);
+        return userService.getUser(id);
     }
 
     @PostMapping("/create-post")

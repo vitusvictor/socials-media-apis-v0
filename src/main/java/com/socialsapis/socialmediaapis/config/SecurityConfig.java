@@ -25,29 +25,10 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final UserDetailsService userService;
 
-
-    private final String[] Auth_Swagger = {
-            "/v2/api-docs",
-            "/swagger-resources",
-            "/swagger-resources/**",
-            "/configuration/ui",
-            "/configuration/security",
-            "/swagger-ui.html",
-            "/webjars/**",
-            "/v3/api-docs/**",
-            "/swagger-ui/**",
-            "/swagger-ui/login/",
-            "/swagger-ui/api/login/",
-            "/swagger-ui/#/**",
-            "/hello"
-    };
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(request -> request.requestMatchers("/api/v1/signup", "/api/v1/signin", "/swagger-ui/index.html#/", "/swagger-ui/index.html")
-                        .permitAll()
-                        .requestMatchers(Auth_Swagger)
+                .authorizeHttpRequests(request -> request.requestMatchers("/api/v1/signup", "/api/v1/signin")
                         .permitAll()
                         .anyRequest()
                         .authenticated())
@@ -55,7 +36,6 @@ public class SecurityConfig {
                 .authenticationProvider(authenticationProvider()).addFilterBefore(
                         jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class).csrf(AbstractHttpConfigurer::disable);
         return http.build();
-
     }
 
     @Bean 
