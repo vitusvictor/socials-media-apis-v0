@@ -52,8 +52,6 @@ public class PostServiceImpl implements PostService {
         postResponse.setComments(post1.getComments());
         postResponse.setLikesCount(post1.getLikesCount());
 
-
-
         return new ResponseEntity<>(postResponse, HttpStatus.CREATED);
     }
 
