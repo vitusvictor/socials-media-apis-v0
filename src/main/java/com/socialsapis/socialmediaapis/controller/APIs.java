@@ -1,24 +1,17 @@
 package com.socialsapis.socialmediaapis.controller;
 
-import com.socialsapis.socialmediaapis.entity.Comment;
-import com.socialsapis.socialmediaapis.entity.Post;
 import com.socialsapis.socialmediaapis.request.*;
 import com.socialsapis.socialmediaapis.response.SignUpResponse;
 import com.socialsapis.socialmediaapis.service.*;
-import com.socialsapis.socialmediaapis.service.impl.UserServiceImpl;
 import jakarta.validation.Valid;
-import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1")
-//@Tag(name="SOCIAL MEDIA APIs",
-//        description = "")
 public class APIs {
 
     private final Signin signin;
@@ -27,28 +20,13 @@ public class APIs {
     private final CommentService commentService;
     private final FollowService followService;
     private final UserService userService;
-//    private final
 
     @PostMapping("/signup")
-//    @Operation(
-//            summary = "Create User REST API"
-//    )
-//    @ApiResponse(
-//            responseCode = "201",
-//            description = "HTTP Status CREATED"
-//    )
     public ResponseEntity<?> signup(@RequestBody SignUpRequest signUpRequest) {
         return ResponseEntity.ok(new SignUpResponse(signUp.signUp(signUpRequest)));
     }
 
     @PostMapping("/signin")
-//    @Operation(
-//            summary = "Sign in user"
-//    )
-//    @ApiResponse(
-//            responseCode = "200",
-//            description = "Signed in"
-//    )
     public ResponseEntity<?> signin(@RequestBody SigninRequest signinRequest) {
         return ResponseEntity.ok(signin.signin(signinRequest));
     }

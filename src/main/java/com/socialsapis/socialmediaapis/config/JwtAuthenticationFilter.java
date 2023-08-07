@@ -2,7 +2,7 @@ package com.socialsapis.socialmediaapis.config;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.socialsapis.socialmediaapis.ErrorResponseDto;
+import com.socialsapis.socialmediaapis.response.ErrorResponseDto;
 import io.jsonwebtoken.JwtException;
 import io.micrometer.common.util.StringUtils;
 import jakarta.servlet.FilterChain;

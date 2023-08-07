@@ -11,7 +11,6 @@ public interface PostService {
 
     ResponseEntity<?> createPost(CreatePostRequest createPostRequest);
 
-//    List<Post> getAllPost();
 
     ResponseEntity<?> likePost(LikePostRequest likePostRequest);
 

@@ -19,6 +19,6 @@ public class Comment {
 
     private String comment;
 
-    @ManyToOne
-    private User commentator;
+//    @ManyToOne
+    private Long commentatorId;
 }

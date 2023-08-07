@@ -15,7 +15,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,10 +44,16 @@ public class CommentServiceImpl implements CommentService {
         Comment comment = new Comment();
 
         comment.setComment(commentRequest.getComment());
-        comment.setCommentator(user);
+        comment.setCommentatorId(user.getId());
         comment.setPost(post);
 
+        List<Comment> commentList = post.getComments();
+        commentList.add(comment);
+
+        post.setComments(commentList);
+
         commentRepo.save(comment);
+        postRepo.save(post);
 
         return new ResponseEntity<>("Comment added.", HttpStatus.CREATED);
     }

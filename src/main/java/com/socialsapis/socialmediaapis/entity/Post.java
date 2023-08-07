@@ -26,8 +26,8 @@ public class Post {
 
     private BigInteger likesCount;
 
-    @ManyToOne
-    private User author;
+//    @ManyToOne
+    private Long authorId;
 
     @OneToMany
     private List<Comment> comments;

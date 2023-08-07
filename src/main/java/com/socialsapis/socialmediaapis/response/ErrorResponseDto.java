@@ -1,4 +1,4 @@
-package com.socialsapis.socialmediaapis;
+package com.socialsapis.socialmediaapis.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

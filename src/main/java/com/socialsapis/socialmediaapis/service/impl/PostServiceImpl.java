@@ -38,21 +38,21 @@ public class PostServiceImpl implements PostService {
         }
 
         Post post = new Post();
-        post.setAuthor(user.get());
+        post.setAuthorId(user.get().getId());
         post.setCreatedDate(LocalDateTime.now());
         post.setComments(new ArrayList<>());
         post.setContent(createPostRequest.getContent());
         post.setLikesCount(BigInteger.valueOf(0));
-
+        Post post1 = postRepo.save(post);
 
         PostResponse postResponse = new PostResponse();
-        postResponse.setCreatedDate(post.getCreatedDate());
-        postResponse.setId(post.getId());
-        postResponse.setContent(post.getContent());
-        postResponse.setComments(post.getComments());
-        postResponse.setLikesCount(post.getLikesCount());
+        postResponse.setCreatedDate(post1.getCreatedDate());
+        postResponse.setId(post1.getId());
+        postResponse.setContent(post1.getContent());
+        postResponse.setComments(post1.getComments());
+        postResponse.setLikesCount(post1.getLikesCount());
 
-        postRepo.save(post);
+
 
         return new ResponseEntity<>(postResponse, HttpStatus.CREATED);
     }
